@@ -6,9 +6,15 @@ const HomePage = () => {
         <header>
             <h1>AI FACE MUSIC</h1>
             <div>
-                <a href = "#">Home</a>
-                <a href = "#">Main</a>
+                <a href = "#" className="text-sm font-semibold leading-6 text-gray-900">
+                    Home
+                </a>
+                <a href = "main" className="text-sm font-semibold leading-6 text-gray-900">
+                    Main
+                </a>
             </div>
+
+
         </header>
     )
 };
