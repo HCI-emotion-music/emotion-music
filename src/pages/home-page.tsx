@@ -3,7 +3,7 @@ import React from "react";
 const HomePage = () => {
 
     return (
-        <header className="bg-orange-100">
+        <header className="bg-blue-100">
             <h1 className="text-white">AI FACE MUSIC</h1>
             <div>
                 <a href = "#" className="text-sm font-semibold leading-6 text-gray-900">
