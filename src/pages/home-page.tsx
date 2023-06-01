@@ -1,21 +1,10 @@
 import React from "react";
+import AppMenu from "../components/app-menu";
 
 const HomePage = () => {
   return (
     <div>
-        {/* MENU */}
-        <div>
-            <a
-            href="/#"
-            className="text-sm font-semibold leading-6 text-gray-900">
-                Home
-            </a>
-            <a
-            href="/main"
-            className="text-sm font-semibold leading-6 text-gray-900">
-                Main
-            </a>
-        </div>
+        <AppMenu />
 
         {/* TITLE */}
         <div className="bg-blue-100">
