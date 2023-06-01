@@ -650,16 +650,16 @@ video {
   margin-right: 2rem;
 }
 
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
 }
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .block {
@@ -710,6 +710,10 @@ video {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -747,11 +751,6 @@ video {
   border-color: rgb(17 24 39 / 0.25);
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-indigo-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
@@ -760,6 +759,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'https\:\/\/file\.notion\.so\/f\/s\/d1997c42-d830-4a3e-8a35-14a301c2d54c\/Background-image\.png\?id\=8990cfec-2096-415f-9e05-f202b0011262\&table\=block\&spaceId\=c515dabd-c53c-43dc-9cfc-f31afa516ba4\&expirationTimestamp\=1685685206990\&signature\=U2Yv0B5yxqO0QQGJydpgMSToyjrDWtKWUDDkrP319KY\&downloadName\=Background-image\.png\'\)\] {
+  background-image: url('https://file.notion.so/f/s/d1997c42-d830-4a3e-8a35-14a301c2d54c/Background-image.png?id=8990cfec-2096-415f-9e05-f202b0011262&table=block&spaceId=c515dabd-c53c-43dc-9cfc-f31afa516ba4&expirationTimestamp=1685685206990&signature=U2Yv0B5yxqO0QQGJydpgMSToyjrDWtKWUDDkrP319KY&downloadName=Background-image.png');
 }
 
 .p-0 {
@@ -829,6 +832,10 @@ video {
   padding-right: 0.5rem;
 }
 
+.pr-20 {
+  padding-right: 5rem;
+}
+
 .pt-16 {
   padding-top: 4rem;
 }
@@ -883,11 +890,6 @@ video {
 
 .tracking-tighter {
   letter-spacing: -0.05em;
-}
-
-.text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .text-gray-300 {

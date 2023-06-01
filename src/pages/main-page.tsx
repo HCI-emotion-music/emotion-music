@@ -16,9 +16,6 @@ const MainPage = () => {
         <AppMainSubmitButton />
       </div>
     </div>
-
-    
-
   );
 };
 
