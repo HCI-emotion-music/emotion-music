@@ -27,4 +27,4 @@ yarn-error.log*
 package-lock.json
 
 # env
-.env
+config/config.ts
