@@ -3,22 +3,22 @@ import AppMainTitle from "../components/app-main-title";
 import AppMainPhotoUpload from "../components/app-main-photo-upload";
 import AppMainSubmitButton from "../components/app-main-submit-button";
 import AppMainTextArea from "../components/app-main-text-area";
-import spotifyClient from "../api/spotify";
+import { positiveList, negativeList } from "../api/spotify";
 
 const MainPage = () => {
   return (
     <div>
       <AppMenu />
       <AppMainTitle />
-      
+
       <div className="px-20">
         <AppMainPhotoUpload />
         <AppMainTextArea />
         <AppMainSubmitButton />
-        <button onClick={ ()=> spotifyClient }>spotify</button>
-        <button onClick={ ()=> spotifyClient.getPositiveMusic }>token</button>
+
+        {/* <button onClick={ ()=> console.log(positiveList)}>spotify</button>
+        <button onClick={ ()=> console.log(negativeList)}>token</button> */}
       </div>
-      
     </div>
   );
 };

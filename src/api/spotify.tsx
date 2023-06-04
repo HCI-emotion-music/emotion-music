@@ -2,64 +2,71 @@ import axios from "axios";
 import { CLIENT_ID, CLIENT_SECRET } from "../config/config";
 
 class SpotifyClient {
-    
-    accessToken: Promise<string>;
-    
-    constructor() {
-        this.accessToken = this.getAccessToken();
-        const positiveMusicInfo = this.getPositiveMusic();
-        const negativeMusicInfo = this.getNegativeMusic();
+  async getAccessToken(): Promise<string> {
+    const response = await axios.post(
+      "https://accounts.spotify.com/api/token",
+      `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
 
-        console.log(this.accessToken);
-        console.log(positiveMusicInfo);
-        console.log(negativeMusicInfo);
+    return await response.data.access_token;
+  }
 
-    }
+  async getPositiveMusic(accessToken: Promise<string>): Promise<any> {
+    const token = await accessToken;
+    const response = await axios.get(
+      "https://api.spotify.com/v1/recommendations",
+      {
+        params: {
+          seed_genres: "happy,funk,kpop,happy,pop",
+          market: "KR",
+          popularity: 50,
+          limit: 2,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-    async getAccessToken() : Promise<string> {
-        
-        const response = await axios.post('https://accounts.spotify.com/api/token', `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`, {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-        });
+    return response.data.tracks;
+  }
 
-        console.log(response.data.access_token);
-        
-        return response.data.access_token;
-    }
+  async getNegativeMusic(accessToken: Promise<string>): Promise<any> {
+    const token = await accessToken;
+    const response = await axios.get(
+      "https://api.spotify.com/v1/recommendations",
+      {
+        params: {
+          seed_genres: "acoustic,sad,jazz,classical,holidays",
+          market: "KR",
+          popularity: 50,
+          limit: 2,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-    async getPositiveMusic() : Promise<any> {
-
-        // const response = await axios.get(
-        //     'https://api.spotify.com/v1/search', {
-        //     params: {
-                
-        //     },
-        //     headers: {
-        //         Authorization: `Bearer ${this.accessToken}`,
-        //     }
-        // });
-        // return response;
-
-        return '';
-    }
-
-    async getNegativeMusic() : Promise<any> {
-        // const response = await axios.get('', {
-        //     params: {
-                
-        //     },
-        //     headers: {
-        //         Authorization: `Bearer ${this.accessToken}`,
-        //     }
-        // });
-        // return response;
-
-        return '';
-    }
+    return response.data.tracks;
+  }
 }
 
 const spotifyClient = new SpotifyClient();
+const accessToken = spotifyClient.getAccessToken();
 
-export default spotifyClient;
+let positiveList: any[], negativeList: any[];
+
+spotifyClient.getPositiveMusic(accessToken).then((data) => {
+  positiveList = data;
+});
+spotifyClient.getNegativeMusic(accessToken).then((data) => {
+  negativeList = data;
+});
+
+export { positiveList, negativeList };
