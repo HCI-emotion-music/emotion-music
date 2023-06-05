@@ -1,5 +1,5 @@
-const CLIENT_ID="";
-const CLIENT_SECRET="";
+const CLIENT_ID="bdf18914b6dc4103ae94fc55b790dae2";
+const CLIENT_SECRET="e637f1c32f2648c58195648429050536";
 const REDIRECT_URI="http://localhost:8888/";
 
 export { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI };

@@ -16,8 +16,8 @@ const MainPage = () => {
         <AppMainTextArea />
         <AppMainSubmitButton />
 
-        {/* <button onClick={ ()=> console.log(positiveList)}>spotify</button>
-        <button onClick={ ()=> console.log(negativeList)}>token</button> */}
+        <button onClick={ ()=> console.log(positiveList)}>spotify</button> 
+        <button onClick={ ()=> console.log(negativeList)}>token</button> 
       </div>
     </div>
   );
