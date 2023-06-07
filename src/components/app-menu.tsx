@@ -2,9 +2,9 @@ const AppMenu = () => {
     return(
         <div className="container px-4 mx-auto">
             <div className="flex items-center justify-between py-5">
-                <div className="w-auto pr-2">
+                {/* <div className="w-auto pr-2">
                     <img src="" alt="" />
-                </div>
+                </div> */}
                 <div className="flex flex-wrap items-center">
                     <div className="w-auto hidden lg:block">
                         <ul className="flex items-center mr-8">    
