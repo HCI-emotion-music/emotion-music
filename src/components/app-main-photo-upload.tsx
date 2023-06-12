@@ -5,7 +5,6 @@ interface AppMainPhotoUploadProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-
 const AppMainPhotoUpload: React.FC<AppMainPhotoUploadProps> = ({ onChange }) => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
@@ -20,7 +19,7 @@ const AppMainPhotoUpload: React.FC<AppMainPhotoUploadProps> = ({ onChange }) => 
         Upload Photo
       </label>
 
-      <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+      <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 bg-white"> {/* 배경색 변경 */}
         <div className="text-center">
           <PhotoIcon
             className="mx-auto h-12 text-gray-300"

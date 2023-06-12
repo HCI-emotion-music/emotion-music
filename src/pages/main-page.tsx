@@ -5,7 +5,7 @@ import AppMainPhotoUpload from '../components/app-main-photo-upload';
 import AppMainSubmitButton from '../components/app-main-submit-button';
 import AppMainTextArea from '../components/app-main-text-area';
 import { useNavigate } from "react-router-dom";
-
+import backgroundImage from '../Background-Image2.png';
 interface SentimentAnalysisResponse {
   documentSentiment: {
     score: number;
@@ -26,6 +26,11 @@ interface FaceAnnotation {
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
 
+    
+  const styles = {
+    backgroundImage: `url(${backgroundImage})`,
+    height: '100vh',
+  };
   // const [textToAnalyze, setTextToAnalyze] = useState("");
   const [analysisResult, setAnalysisResult] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -180,7 +185,7 @@ const MainPage: React.FC = () => {
 // export default MainPage;
 
   return (
-    <div>
+    <div style={styles}>
       <AppMenu />
       <AppMainTitle />
       
