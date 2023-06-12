@@ -6,6 +6,7 @@ import AppMainSubmitButton from '../components/app-main-submit-button';
 import AppMainTextArea from '../components/app-main-text-area';
 import { useNavigate } from "react-router-dom";
 import backgroundImage from '../Background-Image2.png';
+
 interface SentimentAnalysisResponse {
   documentSentiment: {
     score: number;
