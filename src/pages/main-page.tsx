@@ -1,10 +1,10 @@
-import React,{ ChangeEvent, useState }  from 'react';
+import React,{ ChangeEvent, useState, useEffect }  from 'react';
 import AppMenu from '../components/app-menu';
 import AppMainTitle from '../components/app-main-title';
 import AppMainPhotoUpload from '../components/app-main-photo-upload';
 import AppMainSubmitButton from '../components/app-main-submit-button';
 import AppMainTextArea from '../components/app-main-text-area';
-
+import { useNavigate } from "react-router-dom";
 
 interface SentimentAnalysisResponse {
   documentSentiment: {
@@ -24,6 +24,8 @@ interface FaceAnnotation {
 }
 
 const MainPage: React.FC = () => {
+  const navigate = useNavigate();
+
   // const [textToAnalyze, setTextToAnalyze] = useState("");
   const [analysisResult, setAnalysisResult] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -31,7 +33,7 @@ const MainPage: React.FC = () => {
 
   async function analyze() {
     // await analyzeText();
-    await analyzeImage();
+    await analyzeImage(); 
   }
 
   // async function analyzeText() {
@@ -46,12 +48,21 @@ const MainPage: React.FC = () => {
   //   }
   // }
 
+
+  useEffect(() => {
+    if (faceAnalysisResult !== "") {
+      navigate(`/emotion?result=${encodeURIComponent(faceAnalysisResult)}`);
+    }
+  }, [faceAnalysisResult, navigate]);
+
   async function analyzeImage() {
     if (!imageFile) return;
 
     try {
       const response: FaceAnalysisResponse = await fetchYourFaceAnalysisApi(imageFile);
       const faceAnnotations: FaceAnnotation = response.faceAnnotations[0];
+      console.log(response);
+      
 
       let emotions: string[] = [];
       if (faceAnnotations.joyLikelihood === "VERY_LIKELY") {
@@ -176,12 +187,10 @@ const MainPage: React.FC = () => {
       <div className="px-20">
         <AppMainPhotoUpload onChange={handleImageChange} />
         <AppMainSubmitButton onClick={analyze} />
-        <p>{faceAnalysisResult}</p>
       </div>
     </div>
   );
 };
 
 export default MainPage;
-
 
