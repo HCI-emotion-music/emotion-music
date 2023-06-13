@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainPage from "../pages/main-page";
 import HomePage from "../pages/home-page";
 import ResultPage from "../pages/result-page";
+// import MusicPlayPage from "../pages/playMusic-page";
 
 const routes = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const routes = createBrowserRouter([
         path: "/result",
         element: <ResultPage />,
     },
+    // {
+    //     path: "/playMusic",
+    //     element: <MusicPlayPage />,
+    // }
 ]);
 
 export default routes;
